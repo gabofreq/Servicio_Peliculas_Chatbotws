@@ -1,7 +1,7 @@
 // Gabriel Mantilla Saltos
 // Proyecto Chatbot de Peliculas estreno por Whatsapp
 // Maestría en Ciencias de la Computación
-// ateriaa - Principios de Lenguajes de Programación
+// Materia - Principios de Lenguajes de Programación
 
 // Inicializo Librerias, y variables constantes
 const fs = require('fs');
