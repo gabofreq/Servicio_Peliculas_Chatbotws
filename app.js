@@ -3,8 +3,16 @@ const chalk = require('chalk');
 const { Client, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const SESSION_FILE_PATH = './session.json';
+var os = require('os');
 let client;
 let sessionData;
+
+
+
+function splitLines(t) { return t.split(/\r\n|\r|\n/); }
+  
+    
+
 
 const wihSession = () => {
     sessionData = require(SESSION_FILE_PATH);
@@ -52,71 +60,89 @@ const listenMessage = () => {
     client.on('message', (msg) => {
         const {from, to, body} = msg;
         switch(body) {
-            case 'Quiero info':
-                sendMessage(from, 'De que quieres informacion')
-                break;
-            case 'Adiós':
-                sendMessage(from, 'Nos vemos')
-                break;
-            case 'Nos vemos':
-                sendMessage(from, 'Nos vemos')
-                break;
-            case 'Quién eres?':
-                sendMessage(from, 'El bot de Gabriel Mantilla')
-                break;
             case 'Hola':
-                sendMessage(from, 'Hola como estas')
+                sendMessage(from, 'Hola como estas, escriba Catálogo para conocer la información')
                 break;    
             case 'holis':
-                sendMessage(from, 'Hola como estas')
+                sendMessage(from, 'Hola como estas, escriba Catálogo para conocer la información')
                 break;        
             case 'Buenos dias':
-                sendMessage(from, 'Buenos dias')
+                sendMessage(from, 'Hola como estas, escriba Catálogo para conocer la información')
                 break;
             case 'Cómo estás?':
-                sendMessage(from, 'Yo estoy bien y tu?')
+                sendMessage(from, 'Yo estoy bien y tu?, escriba Catálogo para conocer la información')
                 break;
-            case '.':
-                sendMessage(from, 'Escribe algo, gracias')
+            case 'Quién eres?':
+                sendMessage(from, 'El servicio de Información de Peliculas, escriba Catálogo para conocer la información')
                 break;
-            case 'pepe':
-                sendMedia(from,'pepe.jpg')    
+            case 'Catálogo':
+                sendMessage(from,  '1 : No Way Home\n2 : Shang-Chi\n3 : Sin Tiempo para Morir\n4: Top Gun 2\n5 : The king´s Man\n6 : Minions Nace un Villano\n7 : Venom Carnage Liberado\n8 : Los Eternos\n9 : The Batman\n10 : Hallowen Kills')
                 break;
-            case 'No Way Home':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
+            case '1':
+                sendMessage(from,  'Spiderman No Way Home\nFecha de Estreno: 17 de Diciembre de 2021')
                 sendMedia(from,'no_way_home.jpg')    
-                    break;
-            case 'No way Home':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
-                sendMedia(from,'no_way_home.jpg')    
-                    break;
-            case 'No way home':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
-                sendMedia(from,'no_way_home.jpg')    
-                    break;
-            case 'no way home':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
-                sendMedia(from,'no_way_home.jpg')    
-                    break;
-            case 'spiderman':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
-                sendMedia(from,'no_way_home.jpg')    
-            case 'Spiderman':
-                sendMessage(from, 'https://www.youtube.com/watch?v=6QkTCmhOzuA')
-                sendMedia(from,'no_way_home.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=rl0EZCJcrGc')
+                break;
+            case '2':
+                sendMessage(from,  'Shang-Chi\nFecha de Estreno: 2 de Septiembre de 2021')
+                sendMedia(from,'shang-chi.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=HjzATzdlN2A')
                  break;
-            case 'Shang-Chi':
-                sendMessage(from, 'https://www.youtube.com/watch?v=BD77EOU8N3o')
-                sendMedia(from,'shang_chi.jpg')    
-                    break;
-            case 'Shang-chi':
-                sendMessage(from, 'https://www.youtube.com/watch?v=BD77EOU8N3o')
-                sendMedia(from,'shang_chi.jpg')    
-                    break;
-             case 'shang-chi':
-                sendMessage(from, 'https://www.youtube.com/watch?v=BD77EOU8N3o')
-                sendMedia(from,'shang_chi.jpg')    
+
+            case '3':
+                sendMessage(from,  'Sin Tiempo para Morir\nFecha de Estreno: 30 de Septiembre de 2021')
+                sendMedia(from,'morir.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=VYvmuz7ILvg')
                 break;
+
+            case '4':
+                sendMessage(from,  'Top Gun 2\nFecha de Estreno: 27 de Mayo de 2022')
+                sendMedia(from,'topgun.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=nJbEpMfr5aY')
+                break;
+                             
+            case '5':
+                sendMessage(from,  'The king´s Man\nFecha de Estreno: 22 de Diciembre de 2021')
+                sendMedia(from,'kingsman.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=NM5Pf4gONJ4')
+                break;
+
+            case '6':
+                sendMessage(from,  'Minions Nace un Villano\nFecha de Estreno: 2 de Septiembre de 2021')
+                sendMedia(from,'minions.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=tOCczL-LYHo')
+                break;
+
+            case '7':
+                sendMessage(from,  'Venom Carnage Liberado\nFecha de Estreno: 15 de Octubre de 2021')
+                sendMedia(from,'venon.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=F4Ygcigj0Gk')
+                break;
+    
+            case '8':
+                sendMessage(from,  'Los Eternos\nFecha de Estreno: 5 de Noviembre de 2021')
+                sendMedia(from,'eternos.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=v1EkoQV4g5c')
+                break;
+
+            case '9':
+                sendMessage(from,  'The Batman\nFecha de Estreno: 2 de Septiembre de 2021')
+                sendMedia(from,'batman.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=FzdaIYojS3Q')
+                break;
+    
+            case '10':
+                sendMessage(from,  'Hallowen Kills\nFecha de Estreno: 15 de Octubre de 2021')
+                sendMedia(from,'hallowen.jpg')    
+                sendMessage(from, 'https://www.youtube.com/watch?v=I-iJbMA3aoA')
+                break;
+                   
+                case 'Adiós':
+                sendMessage(from, 'Nos vemos, adiós')
+                    break;
+            case 'Nos vemos':
+                sendMessage(from, 'Nos vemos, adiós')
+                    break;
         }
         console.log(from, to, body);
      })
