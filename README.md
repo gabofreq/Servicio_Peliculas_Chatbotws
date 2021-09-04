@@ -3,7 +3,7 @@
 #### Maestría en Ciencias Computacionales
 #### Principios de Lenguajes de Programación
 
-#### Desarrollar un chat bot en cuqluier red social, que conecte lo aprendido en Node con la informacion solicitada por el cliente.
+#### Desarrollar un chat bot en cualquier red social, que conecte lo aprendido en Node con la informacion solicitada por el cliente.
 #### El alcance final del proyecto consistirá en añadir una funcionalidad de su elección (deberán de discutir con el profesor antes de implementarla), que permita una interacción más avanzada sobre la plataforma básica del chat asincrónico. Por ejemplo pueden implementar:
 
 #### * Un juego
