@@ -1,19 +1,17 @@
+// Gabriel Mantilla Saltos
+// Proyecto Chatbot de Peliculas estreno por Whatsapp
+// Maestría en Ciencias de la Computación
+// ateriaa - Principios de Lenguajes de Programación
+
+// Inicializo Librerias, y variables constantes
 const fs = require('fs');
 const chalk = require('chalk');
 const { Client, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 const SESSION_FILE_PATH = './session.json';
-var os = require('os');
 let client;
 let sessionData;
-
-
-
-function splitLines(t) { return t.split(/\r\n|\r|\n/); }
-  
-    
-
-
+// Función que guarda la session del chatbot
 const wihSession = () => {
     sessionData = require(SESSION_FILE_PATH);
     
@@ -29,7 +27,7 @@ const wihSession = () => {
     })
     client.initialize();
 }
-
+// Función de entrada que devuelve codigo de Barra y Guarda la informacion en json
 const withOutSession = () => {
     console.log('No tenemos una session guardada');
     const client = new Client();
@@ -47,15 +45,9 @@ const withOutSession = () => {
             }
         });
     });
-    
-    
     client.initialize();
 }
-
-(fs.existsSync(SESSION_FILE_PATH)) ? wihSession() : withOutSession();
-
-
-// Funcion de escuchar
+// Función de escuchar y devuelve información de peliculas
 const listenMessage = () => {
     client.on('message', (msg) => {
         const {from, to, body} = msg;
@@ -147,13 +139,14 @@ const listenMessage = () => {
         console.log(from, to, body);
      })
 }
-
-
+// Función devuelve un archivo multimedia
 const sendMedia = (to, file) => {
     const mediaFile = MessageMedia.fromFilePath(`./mediaSend/${file}`)
     client.sendMessage(to, mediaFile)
 }
-
+// Función devuelve un Mensaje
 const sendMessage = (to, message) => {
     client.sendMessage(to, message)
 }
+// Función valida Sessión
+(fs.existsSync(SESSION_FILE_PATH)) ? wihSession() : withOutSession();
