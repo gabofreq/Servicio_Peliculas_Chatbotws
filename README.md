@@ -11,3 +11,5 @@
 #### * Un chatbot (que monitorée la conversación de los participantes esperando la ocurrencia de palabras o frases claves para intervenir).
 #### * Otros
 
+#### Mi proyecto es un servicio de información de peliculas, donde el bot mediante consulta, envia informacion al cliente mediante un menu personalizado de peliculas. 
+#### Entrega el Nombre de la Pelicula, La fecha de estreno, El poster, y el link del Tráiler de la pelicula sellecionada. Tambien comprueba cierta información y contesta, como hola y adiós. 
