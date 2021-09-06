@@ -8,7 +8,7 @@
 
 #### * Un juego
 #### * Una herramienta para creación colaborativa de un documento (estilo google docs)
-#### * Un chatbot (que monitorée la conversación de los participantes esperando la ocurrencia de palabras o frases claves para intervenir).
+#### * Un chatbot (que monitoré la conversación de los participantes esperando la ocurrencia de palabras o frases claves para intervenir).
 #### * Otros
 
 #### Mi proyecto es un servicio de información de peliculas, donde el bot mediante consulta, envia informacion al cliente mediante un catalogo actualizado de peliculas. 
